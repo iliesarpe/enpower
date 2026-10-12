@@ -1,0 +1,33 @@
+Bootstrap: docker
+From: mambaorg/micromamba:1.5
+
+# One image for every step of the experiments: the C++ compiler, the Python
+# environment (ensembles, Troupe, CLIP on CPU) and TeX Live for the figures.
+# The repository is not copied into the image; reproduce.sh binds it at run time.
+#
+#   apptainer build --fakeroot enpower.sif container/enpower.def    (from the repository root)
+
+%files
+    container/environment.yml /opt/environment.yml
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update && apt-get install -y --no-install-recommends \
+        g++ make git ca-certificates \
+        texlive-latex-extra texlive-fonts-extra cm-super dvipng ghostscript
+    rm -rf /var/lib/apt/lists/*
+
+    micromamba install -y -n base -f /opt/environment.yml
+    micromamba clean -a -y
+
+    # PyTorch from its CPU wheels, then CLIP
+    /opt/conda/bin/pip install --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cpu
+    /opt/conda/bin/pip install --no-cache-dir git+https://github.com/openai/CLIP.git
+
+%environment
+    export PATH=/opt/conda/bin:$PATH
+    export LC_ALL=C.UTF-8
+    export MPLCONFIGDIR=/tmp/matplotlib
+
+%runscript
+    exec "$@"

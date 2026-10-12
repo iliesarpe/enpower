@@ -1,0 +1,24 @@
+# downloaded datasets, raw outputs of the runs, figures and tables, logs
+data/
+outputs/
+results/
+logs/
+
+# apptainer image
+*.sif
+
+# C++ build products
+*.o
+cpp/solver
+cpp/check
+
+# Python
+__pycache__/
+*.py[cod]
+
+# editors and OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~

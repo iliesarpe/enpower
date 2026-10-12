@@ -1,0 +1,9 @@
+{
+  "name": "small",
+  "comment": "local dry run of the synthetic scaling experiments",
+  "repeats": 3,
+  "timeout": 120,
+  "verify_max_models": 12,
+  "binary": {"models": [100, 1000, 10000], "profiles": [10, 20, 40, 80, 160], "p": [0.1, 0.5, 0.9]},
+  "multiclass": {"models": [10, 25, 50, 100], "labels": [2, 5, 10, 50], "profiles": [10, 100], "p": [0.1, 0.5, 0.9]}
+}

@@ -1,0 +1,20 @@
+# Builds the C++ library and checks it against the definitions of the power indices (brute force).
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: make -C cpp solver check
+      - name: Run the solver on the toy example
+        run: |
+          cpp/solver banzhaf --input cpp/examples/toy.txt
+          cpp/solver shapley --input cpp/examples/toy.txt
+      - name: Check against brute force
+        run: cd cpp && ./check

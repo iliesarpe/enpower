@@ -1,0 +1,9 @@
+{
+  "name": "paper",
+  "comment": "grid of the paper (Section on synthetic experiments); run on the server",
+  "repeats": 5,
+  "timeout": 7200,
+  "verify_max_models": 12,
+  "binary": {"models": [100, 300, 1000, 3000, 10000], "profiles": [10, 20, 40, 80, 160], "p": [0.1, 0.5, 0.9]},
+  "multiclass": {"models": [10, 25, 50, 100], "labels": [2, 5, 10, 20, 50, 100, 1000], "profiles": [10, 100, 1000], "p": [0.1, 0.5, 0.9]}
+}
