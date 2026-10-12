@@ -90,8 +90,8 @@ struct Report {
 
 bool close(Real a, Real b, Real tol)
 {
-   const Real d = std::fabsl(a - b);
-   const Real s = std::max<Real>(1.0L, std::max(std::fabsl(a), std::fabsl(b)));
+   const Real d = std::fabs(a - b);
+   const Real s = std::max<Real>(1.0L, std::max(std::fabs(a), std::fabs(b)));
    return d <= tol * s;
 }
 

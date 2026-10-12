@@ -146,9 +146,9 @@ namespace utilities {
    */
    inline long double log_binom(int a, int b) {
        if (a < 0 || b < 0 || b > a) return -std::numeric_limits<long double>::infinity();
-       return std::lgammal(static_cast<long double>(a) + 1.0L)
-            - std::lgammal(static_cast<long double>(b) + 1.0L)
-            - std::lgammal(static_cast<long double>(a - b) + 1.0L);
+       return std::lgamma(static_cast<long double>(a) + 1.0L)
+            - std::lgamma(static_cast<long double>(b) + 1.0L)
+            - std::lgamma(static_cast<long double>(a - b) + 1.0L);
    }
 
    /**
@@ -159,7 +159,7 @@ namespace utilities {
        long double lb = log_binom(a, b);
        if (lb == -std::numeric_limits<long double>::infinity()) return 0.0L;
        long double v = std::exp(lb);
-       return (lb < 43.6L) ? std::roundl(v) : v; // 43.6 > log(2^63)
+       return (lb < 43.6L) ? std::round(v) : v; // 43.6 > log(2^63)
    }
 
    /**

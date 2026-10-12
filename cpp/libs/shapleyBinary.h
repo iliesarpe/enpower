@@ -40,9 +40,9 @@ namespace detail {
    inline Real openingTerm(int n, int x, int y)
    {
       if (x <= 0) return 0.0L;
-      const long double lb = std::lgammal(static_cast<long double>(n - 2 * x) + 1.0L)
-                           + std::lgammal(static_cast<long double>(2 * x))
-                           - std::lgammal(static_cast<long double>(n) + 1.0L)
+      const long double lb = std::lgamma(static_cast<long double>(n - 2 * x) + 1.0L)
+                           + std::lgamma(static_cast<long double>(2 * x))
+                           - std::lgamma(static_cast<long double>(n) + 1.0L)
                            + utilities::log_binom(y, x);
       return std::exp(lb);
    }
