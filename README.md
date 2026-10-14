@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/iliesarpe/enpower/actions/workflows/tests.yml/badge.svg)](https://github.com/iliesarpe/enpower/actions/workflows/tests.yml)
 [![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-4b44ce.svg)](#citation)
-<!-- [![arXiv](https://img.shields.io/badge/arXiv-TODO-b31b1b.svg)](https://arxiv.org/abs/TODO) -->
+[![arXiv](https://img.shields.io/badge/arXiv-2610.17980-b31b1b.svg)](https://arxiv.org/abs/2610.17980)
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C.svg?logo=cplusplus)](cpp/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -30,7 +30,7 @@ paper.
 @article{sarpe2026enpower,
   title   = {Exact power indices for plurality-voting ensembles},
   author  = {Sarpe, Ilie and Georgakopoulos, Theofanis and Gionis, Aristides},
-  journal = {arXiv preprint arXiv:TODO},
+  journal = {arXiv preprint arXiv:2610.17980},
   year    = {2026}
 }
 ```
